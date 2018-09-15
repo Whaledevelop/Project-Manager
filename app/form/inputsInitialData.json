@@ -1,0 +1,57 @@
+[
+  {
+    "name" : "login",
+    "element" : "input",
+    "type" : "text", 
+    "label" : "Логин"
+  },
+  {
+    "name" : "password",
+    "element" : "input",
+    "type" : "password",
+    "label" : "Пароль"
+  },
+  {
+    "name" : "passwordConfirm",
+    "element" : "input",
+    "type" : "password",
+    "label" : "Подтверждение пароля", 
+    "isService" : true
+  },
+  {
+    "name" : "name",
+    "element" : "input",
+    "type" : "text", 
+    "label" : "Имя"
+  },
+  {
+    "name" : "email",
+    "element" : "input",
+    "type" : "text",
+    "label" : "Email"
+  }, 
+  {
+    "name" : "passwordProtect",
+    "element" : "input",
+    "type" : "password",
+    "label" : "Для подтверждения нужно ввести пароль",
+    "isService" : true
+  }, 
+  {
+    "name" : "recipient_id",
+    "element" : "select",
+    "label" : "Получатель",
+    "optionsSubject" : "recipients"
+  },
+  {
+    "name" : "theme",
+    "element" : "input",
+    "type" : "text",
+    "label" : "Тема"
+  },
+  {
+    "name" : "text",
+    "element" : "textarea",
+    "label" : "Текст сообщения"
+  }
+]

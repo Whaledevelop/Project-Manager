@@ -1,0 +1,68 @@
+.headerNavBarContainer {
+  border: 1px solid #D3DCE3;
+}
+
+.headerNavBar {
+  margin-top: 10px;
+}
+
+input {
+  padding: 4px;
+}
+
+h4.pageHeader {
+  margin: 15px 0px 30px;
+}
+
+.correct {
+  border: 1px solid green;
+}
+
+.noncorrect{
+  border: 1px solid red;
+}
+
+.red {
+  color: red;
+}
+
+div.pagePanel {
+  padding: 15px;
+}
+
+h5.pageSubheader {
+  margin-bottom: 15px;
+}
+
+div.messagesPanel {
+  background-color: #D3DCE3;
+}
+
+a.whiteLink {
+  color: white;
+} 
+
+a.whiteLink:hover {
+  text-decoration: none;
+} 
+
+.unread{
+  font-weight: bold;
+}
+
+.read{
+  font-weight: normal;
+}
+
+tr.messageString {
+  cursor: pointer;
+}
+
+.fas {
+  padding: 5px;
+  font-size: 2em;
+}
+
+.fas:hover{
+  text-decoration: none;
+}
