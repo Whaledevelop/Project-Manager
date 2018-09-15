@@ -39,13 +39,13 @@
         return "
           Вам отправлено новое письмо верификации на обновленный 
           адрес электронной почты. После подтверждения вы сможете
-          <a href=\"../../auth/index.php\">
+          <a href=\"/auth/\">
             Войти в аккаунт
           </a>";
       }
 
       return "Вы успешно обновили данные. 
-        <a href=\"../../cabinet/index.php?login=".$updatedUser['login']."\">
+        <a href=\"/cabinet/index.php?login=".$updatedUser['login']."\">
           Вернуться в личный кабинет
         </a>
       ";

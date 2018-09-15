@@ -1,7 +1,6 @@
 <?php
   session_start();
   $_SESSION['root'] = str_replace("\\", "/", __DIR__);
-  $_SESSION['rootHref'] = str_replace("/index.php", "", $_SERVER['REQUEST_URI']);
 
   require_once $_SESSION['root']."/app/renderPage.php";
 
@@ -14,8 +13,8 @@
     ? renderAuthMainPage()
     : renderNotAuthMainPage();
   
-  define("PAGE_TITLE_AND_HEADER", "Главная страница");
-  echo renderPage($mainPageContent, PAGE_TITLE_AND_HEADER, PAGE_TITLE_AND_HEADER);
+  define("PAGE_TITLE", "Главная страница");
+  echo renderPage($mainPageContent, PAGE_TITLE, PAGE_TITLE);
 ?>
 
 

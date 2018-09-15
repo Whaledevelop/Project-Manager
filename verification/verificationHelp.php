@@ -13,7 +13,7 @@
     
     if ($user['isVerified'] == 0) {
 
-      $changeMailHref = "../profile/edit/index.php?login=".
+      $changeMailHref = "/profile/edit/index.php?login=".
         $user['login']."&inputs[]=email
       ";
       $changeMailLink = "

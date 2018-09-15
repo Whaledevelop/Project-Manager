@@ -1,4 +1,6 @@
 <?php
+  require_once $_SESSION['root']."/app/table/renderElementsGroup.php";
+  
   function renderTable($headers, $trs, $markButtons = []) {
     $thead = renderElementsGroup("thead", "th", $headers);    
     $tbody = renderElementsGroup("tbody", "tr", $trs);
@@ -21,19 +23,6 @@
       ";
     } else {
       return $table;
-    }
-  }
-
-  function renderElementsGroup($outElem, $inElem, $labels) {
-    if (!empty($labels)) {
-      $string = "<".$outElem.">";
-      foreach ($labels as $label) {
-        $string .= "<".$inElem.">".$label."</".$inElem.">";
-      }
-      $string .= "</".$outElem.">";
-      return $string;
-    } else {
-      return "";
     }
   }
 ?>

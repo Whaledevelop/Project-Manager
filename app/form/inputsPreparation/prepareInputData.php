@@ -1,5 +1,5 @@
 <?php
-  define("VALIDATION_PATH", $_SESSION['root']."/app/form/validation");
+  define("VALIDATION_PATH", FORM_FOLDER_PATH."/validation");
   require_once VALIDATION_PATH."/validateEmailValue.php";
   require_once VALIDATION_PATH."/validateLoginValue.php";
   require_once VALIDATION_PATH."/validateNameValue.php";

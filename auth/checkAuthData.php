@@ -11,7 +11,7 @@
           return "correct";
         }
       } else {
-        $helpHref = "../verification/verificationHelp.php?login=".$user['login'];
+        $helpHref = "/verification/verificationHelp.php?login=".$user['login'];
         return "
           <p>Аккаунт не верифицирован. 
             <a href=\"".$helpHref."\">

@@ -1,19 +1,19 @@
 <?php
-  require_once $_SESSION['root']."/app/header/renderHeaderAuthProfileOptions.php";
-  require_once $_SESSION['root']."/app/header/renderLogoutOption.php";
+  define("HEADER_PATH", $_SESSION['root']."/app/header");
+  require_once HEADER_PATH."/renderAuthProfileOptions.php";
+  require_once HEADER_PATH."/renderLogoutOption.php";
 
   function renderHeader() {
     session_start();
     if (!empty($_SESSION['user'])) {
-      $cabinetFolderPath = $_SESSION['rootHref']."/cabinet";
       $enteredAsInfo = "
         Вы вошли как
-        <a href=\"".$cabinetFolderPath."/index.php\">
+        <a href=\"/cabinet\">
           ".$_SESSION['user']['login']."  
         </a> 
       ";
-      $optionsString = renderHeaderAuthProfileOptions($cabinetFolderPath);
-      $logoutOptionString = renderLogoutOption($cabinetFolderPath);
+      $optionsString = renderAuthProfileOptions();
+      $logoutOptionString = renderLogoutOption();
     } else {
       $enteredAsInfo = "Вы не авторизованы";
     }
@@ -23,7 +23,7 @@
           <div  class=\"col-lg-9\">
             <ul class=\"nav nav-pills headerNavBar\">
               <li class=\"nav-item\">
-                <a href=\"".$_SESSION['rootHref']."/index.php\">
+                <a href=\"/\">
                   <i class=\"fas fa-home\"></i>
                 </a>
               </li>

@@ -16,10 +16,10 @@
         было отправлено письмо для подтверждения данных аккаунта
       </p>
       <p>После верификации вы сможете
-        <a href=\"../auth/index.php\"> войти в аккаунт</a>
+        <a href=\"/auth/\"> войти в аккаунт</a>
       </p>
       <p>
-        <a href=\"../verification/verificationHelp.php?login=".$login."\">
+        <a href=\"/verification/verificationHelp.php?login=".$login."\">
           Отправить повторное письмо
         </a>
       </p>

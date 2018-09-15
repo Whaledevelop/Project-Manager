@@ -4,7 +4,7 @@
 
   $deleteSuccessContent = "
     <p>Вы успешно удалили аккаунт</p>
-    <a href = \"".$_SESSION['rootHref']."\">
+    <a href = \"/\">
       Вернуться на главную
     </a>
   ";

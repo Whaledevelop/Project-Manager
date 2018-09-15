@@ -1,10 +1,10 @@
 <?php
   function renderSettingsPanel($userLogin) {
-    $authProfileHref = "../profile/index.php?login=".$userLogin;
+    define("AUTH_PATH", $_SESSION['rootHref']."/profile/index.php");
 
     $editHref = function($inputs) use ($userLogin) {
       $inputsParams = "&inputs[]=".implode("&inputs[]=", $inputs);
-      return "../profile/edit/index.php?login="
+      return "/profile/edit/index.php?login="
         .$userLogin.$inputsParams;
     };
 
@@ -13,7 +13,9 @@
         <h5 class=\"pageSubheader\">Настройки аккаунта</h5>
         <ul>
           <li>
-            <a href=\"".$authProfileHref."\">Мой профиль</a>
+            <a href=\"/profile/index.php?login=".$userLogin."\">
+              Мой профиль
+            </a>
           </li>
           <li>
             <a href=\"".$editHref(['name', "email"])."\">Редактировать профиль</a>
@@ -24,11 +26,11 @@
           <li>
             <a href=\"".$editHref(['password'])."\">Редактировать пароль</a>
           <li>
-            <a href=\"logout.php\">Выйти из аккаунта</a>
+            <a href=\"/cabinet/logout.php\">Выйти из аккаунта</a>
           </li>
           </li>
           <li>
-            <a href=\"deletePage.php\">Удалить аккаунт</a>
+            <a href=\"/cabinet/deletePage.php\">Удалить аккаунт</a>
           </li>
         </ul>
       </div>

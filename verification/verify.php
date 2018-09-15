@@ -22,7 +22,7 @@
         $verifyPageContent = "
           <p>
             Вы успешно верифицировали свой профиль. Теперь вы можете
-            <a href=\"../auth/index.php?login=".$login."\">
+            <a href=\"/auth/index.php?login=".$login."\">
               войти в аккаунт
             </a>
           </p> 

@@ -20,7 +20,9 @@
           integrity=\"sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU\" 
           crossorigin=\"anonymous\"
         >
-        <link rel=\"stylesheet\" href=\"/35-42_auth_registr/37-42/css/style.css\">
+        <link rel=\"stylesheet\" 
+          href=\"/css/style.css\"
+        >
       </head>
       <body>
         ".($isWithHeader ? renderHeader() : "")."

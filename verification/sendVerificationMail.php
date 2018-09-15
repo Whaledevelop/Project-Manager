@@ -4,8 +4,10 @@
     $subject = "Verification";
     $linkParams = "verification_code=".$user['verification_code'].
       "&login=".$user['login']."\"";
-    $linkHref = "\"code/35-42_auth_registr/37-42/verification/verify.php?"
-      .$linkParams;
+    $projectName = $_SERVER['HTTP_HOST'];
+
+    $linkHref = $projectName."/verification/verify.php?".$linkParams;
+
     $message = "
       <h4>Вы успешно зарегистрировались</h4>
       <p>Ваши данные:</p>
@@ -15,7 +17,7 @@
         <li>Почта : ".$user['email']."</li>
         <li>Пароль : ".$user['pass_reminder']."</li>
       </ul>
-      <a href = ".$linkHref.">
+      <a href = \"".$linkHref."\">
         Пройти верификацию аккаунта
       </a>
     ";

@@ -2,7 +2,7 @@
   session_start();
   require_once $_SESSION['root']."/app/renderPage.php";
 
-  require_once $_SESSION['root']."/profile/renderAuthProfileOptions.php";
+  require_once $_SESSION['root']."/profile/renderAuthProfileActions.php";
   require_once $_SESSION['root']."/profile/renderProfile.php";
 
   require_once $_SESSION['root']."/sql/select.php";  
@@ -16,7 +16,7 @@
       $profileShownProps["registration_time"] = "Время регистрации";
       $profileShownProps["last_update"] = "Время последнего изменения профиля";
       $profilePageContent = renderProfile($profile, $profileShownProps).
-        renderAuthProfileOptions($profile['login']);
+        renderAuthProfileActions($profile['login']);
     } else {
       define("USERS_TABLE", "users");
       define("SELECT_ONE", true);

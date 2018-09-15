@@ -2,8 +2,9 @@
   session_start();
   require_once $_SESSION['root']."/app/renderPage.php";
 
-  require_once $_SESSION['root']."/cabinet/renderSettingsPanel.php";
-  require_once $_SESSION['root']."/cabinet/messages/renderMessagesPanel.php";
+  define("CABINET_FOLDER_PATH", $_SESSION['root']."/cabinet");
+  require_once CABINET_FOLDER_PATH."/renderSettingsPanel.php";
+  require_once CABINET_FOLDER_PATH."/messages/renderMessagesPanel.php";
  
   $user = $_SESSION['user'];
   

@@ -1,13 +1,14 @@
 <?php
   session_start();
-  require_once $_SESSION['root']."/app/form/prepareFormData.php";
-  require_once $_SESSION['root']."/app/form/checkAreAllInputsCorrect.php";
-  require_once $_SESSION['root']."/app/form/renderFormWithValidation.php";
+  define("FORM_FOLDER_PATH", $_SESSION['root']."/app/form");
+  require_once FORM_FOLDER_PATH."/inputsPreparation/prepareFormData.php";
+  require_once FORM_FOLDER_PATH."/validation/checkAreAllInputsCorrect.php";
+  require_once FORM_FOLDER_PATH."/render/renderFormWithValidation.php";
+
   require_once $_SESSION['root']."/app/renderPage.php";
 
   require_once $_SESSION['root']."/sql/add.php";
   
-
   $neededInputsNames = ["recipient_id", "theme", "text"];
 
   $enteredValues = [];

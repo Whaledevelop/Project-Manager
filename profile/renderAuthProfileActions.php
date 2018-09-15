@@ -1,6 +1,6 @@
 <?php
-  function renderAuthProfileOptions($login) {
-    $editProfileHref = "edit/index.php?login=".$login.
+  function renderAuthProfileActions($login) {
+    $editProfileHref = "/profile/edit/index.php?login=".$login.
       "&inputs[]=name&inputs[]=email";
     return "
       <p>Это ваш аккаунт. Вы можете :</p>
@@ -10,7 +10,7 @@
         </a>
       </p>
       <p>
-        <a href=\"../cabinet/\">
+        <a href=\"/cabinet/\">
           Войти в личный кабинет
         </a>
       </p>

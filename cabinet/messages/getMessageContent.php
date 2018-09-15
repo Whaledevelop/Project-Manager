@@ -19,11 +19,19 @@
       <h6>".$messageData['theme']."</h6>
       <p>".$messageData['text']."</p>
       <p>
-        <a href=\"".
-          $_SESSION['rootHref']."/cabinet/messages/writeMessage.php?recipient_id="
+        <a href=\"/cabinet/messages/deleteMessage.php?id="
+          .$messageData['id']."
+        \">       
+          <button class=\"btn btn-default\">
+            Удалить сообщение
+          </button>
+        </a>
+      </p>
+      <p>
+        <a href=\"/cabinet/messages/writeMessage.php?recipient_id="
           .$interlocutor['id']."
         \">       
-          <button class=\"btn btn-default\">".
+          <button class=\"btn btn-info\">".
             $answerButtonText."
           </button>
         </a>

@@ -9,11 +9,15 @@
     
     $authDataStatus = authorizeUser();
     if ($authDataStatus == "correct") {
-      header("Location: ../index.php");
+      header("Location: /");
     }
   } 
   $authPageContent = renderAuthForm($authDataStatus)."<hr/>
-    <p>Нет аккаунта? <a href=\"../reg/index.php\">Зарегистрироваться</a></p>
+    <p>Нет аккаунта? 
+      <a href=\"/reg/index.php\">
+        Зарегистрироваться
+      </a>
+    </p>
   ";
 
   define("PAGE_TITLE_AND_HEADER", "Форма авторизации");
