@@ -27,8 +27,9 @@
           name=\"markedMessagesIds[".$messageData['id']."]\"/>
       ";
 
-      $onclickAttr = "onclick = \"window.location.href='message.php?id=".
-        $messageData['id']."'\"";
+      $onclickParams = "id=".$messageData['id'];
+      $onclickHref = "/cabinet/messages/message/index.php?".$onclickParams;
+      $onclickAttr = "onclick = \"window.location.href='".$onclickHref."'\"";
         
       $messageString = "
         <tr class = \"messageString\">

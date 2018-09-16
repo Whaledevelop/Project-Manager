@@ -7,9 +7,9 @@
     $password = md5($passwordOriginal.$salt);
     $verificationCode = generateCode(16);
     return [
-      "name" => trim($regData['name']),
-      "email" => trim($regData['email']),
-      "login" => trim($regData['login']),
+      "name" => $regData['name'],
+      "email" => $regData['email'],
+      "login" => $regData['login'],
       "password" => $password,
       "pass_reminder" => $passwordOriginal,
       "salt" => $salt,

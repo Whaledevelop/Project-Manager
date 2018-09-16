@@ -2,10 +2,10 @@
   session_start();
   require_once $_SESSION['root']."/app/renderPage.php";
 
-  require_once $_SESSION['root']."/cabinet/messages/getMessagesTableContent.php";  
+  require_once __DIR__."/getMessagesTableContent.php";  
 
-  require_once $_SESSION['root']."/cabinet/messages/markAsRead.php"; 
-  require_once $_SESSION['root']."/cabinet/messages/deleteMarked.php"; 
+  require_once __DIR__."/mark/markAsRead.php"; 
+  require_once __DIR__."/mark/deleteMarked.php"; 
 
   if (!empty($_REQUEST['markedMessagesIds'])) {
     $markedIds = $_REQUEST['markedMessagesIds'];

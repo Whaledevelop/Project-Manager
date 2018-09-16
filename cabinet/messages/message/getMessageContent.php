@@ -11,6 +11,8 @@
 
     $sendTime = date("j M - G:i", strtotime($messageData['send_time']));
 
+    $answerParams = "recipientId=".$interlocutor['id'];
+    $answerHref = "/cabinet/messages/write/index.php?".$answerParams;
     $answerButtonText = $isIncoming ? "Ответить" : "Написать еще сообщение";
 
     return "
@@ -28,9 +30,7 @@
         </a>
       </p>
       <p>
-        <a href=\"/cabinet/messages/writeMessage.php?recipient_id="
-          .$interlocutor['id']."
-        \">       
+        <a href=\"".$answerHref."\">       
           <button class=\"btn btn-info\">".
             $answerButtonText."
           </button>

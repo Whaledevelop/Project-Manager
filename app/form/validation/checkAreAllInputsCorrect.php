@@ -1,20 +1,32 @@
 <?php
   function checkAreAllInputsCorrect($inputsData) {
-    $inputStatuses = array_column($inputsData, "status");
-    $numberOfStatuses = array_count_values($inputStatuses);
+    $updativeInputsData = array_filter($inputsData, function($inputData) {
+      return !$inputData['isService'];
+    });
+
+    $numbersOfStatuses = numbersOfColumnValues($inputsData, "status");
+    $numbersOfUpdativeInputsStatuses = numbersOfColumnValues($updativeInputsData, 
+      "status"
+    );
     /*
-      Пользователь будет изменен, если хотя одно поле изменено и оно корректно,
-      и при этом остальные поля не содержат ошибок (могут оставаться неизмененными).
+      Пользователь будет изменен, если хотя бы одно обновляемое поле изменено, 
+      оно корректно, и при этом остальные поля не пустые и не содержат ошибок
+      (могут оставаться неизмененными).
     */
     if (
-      $numberOfStatuses['correct'] > 0 &&
-      $numberOfStatuses['correct'] + $numberOfStatuses['Значение не изменено'] ==
-      count($inputsData) // некоторые статусы могут быть пустыми из-за пустых инпутов, поэтому
-      // проверка по числу инпутов, а не статусов
+      $numbersOfUpdativeInputsStatuses['correct'] > 0 
+      &&
+      $numbersOfStatuses['correct'] + $numbersOfStatuses['Значение не изменено'] ==
+      count($inputsData) 
     ) {
       return true;
     } else {
       return false;
     }
+  }
+
+  function numbersOfColumnValues($array, $column) {
+    $columnValues = array_column($array, $column);
+    return array_count_values($columnValues);
   }
 ?>

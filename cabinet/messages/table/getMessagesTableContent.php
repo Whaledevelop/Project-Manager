@@ -1,8 +1,9 @@
 <?php
   require_once $_SESSION['root']."/app/table/renderTable.php";
 
-  require_once $_SESSION['root']."/cabinet/messages/prepareMessagesStrings.php";
-  require_once $_SESSION['root']."/cabinet/messages/prepareMarkButtons.php";
+  require_once __DIR__."/prepareMessagesStrings.php";
+  
+  require_once __DIR__."/mark/prepareMarkButtons.php";
 
   require_once $_SESSION['root']."/sql/select.php";
 

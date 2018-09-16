@@ -2,7 +2,7 @@
   session_start();
   require_once $_SESSION['root']."/app/renderPage.php";
 
-  require_once $_SESSION['root']."/cabinet/messages/getMessageContent.php";
+  require_once __DIR__."/getMessageContent.php";
 
   require_once $_SESSION['root']."/sql/select.php";
   require_once $_SESSION['root']."/sql/update.php";

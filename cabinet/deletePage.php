@@ -11,9 +11,8 @@
   
   $protectInput = ["passwordProtect"];
   $enteredValues = $_POST;
-  $userInitialData = $_SESSION['user'];
   if (!empty($userInitialData)) {
-    $inputsData = prepareFormData($protectInput, $enteredValues, $userInitialData);
+    $inputsData = prepareFormData($protectInput, $enteredValues, true);
     
     if (checkAreAllInputsCorrect($inputsData)) {    
       define("USERS_TABLE", "users");

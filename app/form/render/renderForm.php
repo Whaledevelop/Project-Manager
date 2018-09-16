@@ -1,8 +1,7 @@
 <?php
-  define("RENDER_FORM_PATH", $_SESSION['root']."/app/form/render");
-  require_once RENDER_FORM_PATH."/renderFormGroup.php";
+  require_once __DIR__."/renderFormGroup.php";
 
-  function renderFormWithValidation(
+  function renderForm(
     $inputsData, $buttonValue = "Подтвердить", $formStatus = ""
   ) {
     $inputsString = "";

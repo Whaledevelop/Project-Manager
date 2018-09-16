@@ -1,7 +1,5 @@
 <?php
   function renderSettingsPanel($userLogin) {
-    define("AUTH_PATH", $_SESSION['rootHref']."/profile/index.php");
-
     $editHref = function($inputs) use ($userLogin) {
       $inputsParams = "&inputs[]=".implode("&inputs[]=", $inputs);
       return "/profile/edit/index.php?login="

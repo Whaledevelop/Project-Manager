@@ -1,33 +1,84 @@
 <?php
-  define("FORM_FOLDER_PATH", $_SESSION['root']."/app/form");
-  require_once FORM_FOLDER_PATH."/inputsPreparation/prepareInputData.php";
-  require_once FORM_FOLDER_PATH."/inputsPreparation/prepareSelectData.php";
+  define("VALIDATION_PATH", $_SESSION['root']."/app/form/validation");
+  require_once VALIDATION_PATH."/validateEmailValue.php";
+  require_once VALIDATION_PATH."/validateLoginValue.php";
+  require_once VALIDATION_PATH."/validateNameValue.php";
+  require_once VALIDATION_PATH."/validatePasswordValue.php";
+  require_once VALIDATION_PATH."/validatePasswordConfirmValue.php";
+  require_once VALIDATION_PATH."/validatePasswordProtectValue.php";
+  require_once VALIDATION_PATH."/validateThemeValue.php";
+  require_once VALIDATION_PATH."/validateTextValue.php";
+  require_once VALIDATION_PATH."/validateRecipientIdValue.php";
 
-  function prepareFormData($neededInputsNames, $enteredValues, $initialData = []) {
-    /*
-      Если начальные данные пользователя не пусты, то форма используется 
-      для редактирования. При редактировании пароля или логина требуется 
-      ввести действующий пароль
-    */
-    if (!empty($initialData) && 
-      (in_array("password", $neededInputsNames) 
-        || in_array("login", $neededInputsNames))
+  function prepareFormData(
+    $neededInputsNames, $enteredValues, $isValidative = true, $initialValues = []
+  ) {
+
+    if (!empty($initialValues) && 
+      (in_array("password", $neededInputsNames) || in_array("login", $neededInputsNames))
     ) {
       $neededInputsNames[] = "passwordProtect";
     }
 
-    define("INITIAL_DATA_PATH", FORM_FOLDER_PATH."/inputsInitialData.json");
-    $inputsInitialDataJson = file_get_contents(INITIAL_DATA_PATH );
+    define("INITIAL_DATA_PATH", $_SESSION['root']."/app/form/inputsInitialData.json");
+    $inputsInitialDataJson = file_get_contents(INITIAL_DATA_PATH);
     $inputsInitialData = json_decode($inputsInitialDataJson, true);
     
     $inputsData = [];
     foreach ($inputsInitialData as $inputInitialData) {
-      if (in_array($inputInitialData['name'], $neededInputsNames)) {
+      $inputData = $inputInitialData;
+      $inputName = $inputData['name'];
 
-        $inputData = $inputInitialData['element'] == "select"
-          ? prepareSelectData($inputInitialData, $enteredValues, $initialData)
-          : prepareInputData($inputInitialData, $enteredValues, $initialData);
-
+      if (in_array($inputName, $neededInputsNames)) {
+        $initialValue = !empty($initialValues) && $inputName != "password"
+          ? $initialValues[$inputName] 
+          : "";
+        if (!empty($enteredValues)) {
+          $enteredValue = strip_tags(trim($enteredValues[$inputName]));
+          if ($isValidative) {
+            
+            if (!empty($enteredValue)) {
+              if ($enteredValue != $initialValue) {
+                $inputData['value'] = $enteredValue;
+                
+                $validationFunctionName = "validate".ucfirst($inputName)."Value";
+                $validationFunctionParams = [$inputData['value']];
+  
+                switch ($inputName) {
+                  case "passwordConfirm" : {
+                    $validationFunctionParams[] = $enteredValues['password'];
+                    break;
+                  }
+                  case "passwordProtect" : 
+                  case "password" : {
+                    $validationFunctionParams[] = $initialValues['password'];
+                    $validationFunctionParams[] = $initialValues['salt'];
+                    break;
+                  }     
+                }
+                try {
+                  $inputData['status'] = call_user_func_array(
+                    $validationFunctionName, $validationFunctionParams
+                  );
+    
+                  $inputData['class'] = $inputData['status'] == "correct" ? "correct" : "noncorrect";
+                } catch (Error $error) { }
+              } else {
+                $inputData['value'] = $initialValue;
+                $inputData['status'] = "Значение не изменено";
+              }              
+            } else {
+              $inputData['value'] = $initialValue;
+              $inputData['status'] = "Введите значение";
+              $inputData['class'] = "noncorrect";
+            }
+            
+          } else {
+            $inputData['value'] = $enteredValue;
+          }
+        } else {
+          $inputData['value'] = $initialValue;
+        }
         $inputsData[$inputData['name']] = $inputData; 
       } 
     } 

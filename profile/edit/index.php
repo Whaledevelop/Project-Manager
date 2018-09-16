@@ -3,7 +3,7 @@
   define("FORM_FOLDER_PATH", $_SESSION['root']."/app/form");
   require_once FORM_FOLDER_PATH."/inputsPreparation/prepareFormData.php";
   require_once FORM_FOLDER_PATH."/validation/checkAreAllInputsCorrect.php";
-  require_once FORM_FOLDER_PATH."/render/renderFormWithValidation.php";
+  require_once FORM_FOLDER_PATH."/render/renderForm.php";
   
   require_once $_SESSION['root']."/app/renderPage.php";
 
@@ -20,17 +20,17 @@
       $login = $_GET['login'];
       $userInitialData = $login == $_SESSION['user']['login']
         ? $_SESSION['user']
-        : select("users", ['login' => $login]);
+        : select("users", ['login' => $login], true);
       $enteredValues = $_POST;
       
-      $inputsData = prepareFormData($neededInputNames, $enteredValues, $userInitialData);
-      
+      $inputsData = prepareFormData($neededInputNames, $enteredValues, true, $userInitialData);
+
       if (checkAreAllInputsCorrect($inputsData)) {
         
         $editFormMessage = editUser($inputsData, $login);
       }
   
-      $editUserPageContent = renderFormWithValidation(
+      $editUserPageContent = renderForm(
         $inputsData, "Изменить", $editFormMessage);
   
       define("PAGE_TITLE_AND_HEADER", "Изменение профиля ".$login);

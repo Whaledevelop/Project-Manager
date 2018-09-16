@@ -4,13 +4,13 @@
       "<a href=\"/cabinet/\"
         <i class=\"fas fa-user-circle\"></i>
       </a>",
-      "<a href=\"/cabinet/messages/index.php\"
+      "<a href=\"/cabinet/messages/\"
         <i class=\"fas fa-envelope-square\"></i>
       </a>",
-      "<a href=\"/cabinet/messages/writeMessage.php\"
+      "<a href=\"/cabinet/messages/write/\"
         <i class=\"fas fa-pen-square\"></i>
       </a>",
-      "<a href=\"/cabinet/settings.php\"
+      "<a href=\"/cabinet/settings/\"
         <i class=\"fas fa-cog\"></i>
       </a>"
     ];

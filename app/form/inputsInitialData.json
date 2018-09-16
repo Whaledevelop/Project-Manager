@@ -38,10 +38,9 @@
     "isService" : true
   }, 
   {
-    "name" : "recipient_id",
+    "name" : "recipientId",
     "element" : "select",
-    "label" : "Получатель",
-    "optionsSubject" : "recipients"
+    "label" : "Получатель"
   },
   {
     "name" : "theme",
@@ -53,5 +52,11 @@
     "name" : "text",
     "element" : "textarea",
     "label" : "Текст сообщения"
+  },
+  {
+    "name" : "remember",
+    "element": "input",
+    "type" : "checkbox",
+    "label" : "Запомнить меня"
   }
 ]

@@ -32,17 +32,19 @@
         <h5 class=\"pageSubheader\">Панель сообщений</h5>
         <ul>
           <li>
-            <a href=\"/cabinet/messages/incomingMessages.php\">
+            <a href=\"/cabinet/messages/table/incomingMessages.php\">
               Входящие (".$unreadStatus.")
             </a>
           </li>
-          <li><a href=\"/cabinet/messages/outcomingMessages.php\">
+          <li>
+            <a href=\"/cabinet/messages/table/outcomingMessages.php\">
             Исходящие сообщения
-          </a></li>
+            </a>
+          </li>
         </ul>
         <div class = \"row justify-content-center\">
           <a class=\"whiteLink\" 
-            href=\"/cabinet/messages/writeMessage.php\"
+            href=\"/cabinet/messages/write/\"
           >
             <button class=\"btn btn-info \">
               Написать сообщение
